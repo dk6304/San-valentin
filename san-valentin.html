@@ -3,31 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>San Valentin</title>
-    <script>
-        function handleYes() {
-            document.getElementById('message').innerText = 'Muchas gracias por querer ser mi san valentin te amo mucho❤';
+    <title>San Valentín</title>
+    <style>
+        /* Tab styles */
+        .tab {
+            display: none;
         }
-
-        function handleNo() {
-            document.getElementById('noTab').style.display = 'block';
-            document.getElementById('siTab').style.display = 'block';
+        .active {
+            display: block;
         }
-    </script>
+    </style>
 </head>
 <body>
-    <h1>¿Quieres ser mi San Valentin?</h1>
-    <button onclick="handleYes()">Sí</button>
-    <button onclick="handleNo()">No</button>
-    <div id="message"></div>
-
-    <div id="noTab" style="display:none;">
-        <h2>Opción No</h2>
-        <button>Volver</button>
+    <h1>San Valentín</h1>
+    <div id="tab1" class="tab active">
+        <h2>¿Quieres ser mi San Valentín?</h2>
+        <button onclick="openTab('tab2')">Sí</button>
+        <button onclick="openTab('tab2')">No</button>
     </div>
-    <div id="siTab" style="display:none;">
+    <div id="tab2" class="tab">
+        <h2>Respuesta</h2>
+        <p>¿De verdad no quieres ser mi San Valentín?</p>
+        <button onclick="openTab('finalTab')">No</button>
+        <button onclick="openTab('finalTab')">Sí</button>
+    </div>
+    <div id="finalTab" class="tab">
         <h2>¡Gracias!</h2>
-        <button onclick="handleYes()">¡Sí!</button>
+        <p>¡Muchas gracias por querer ser mi san valentín te amo mucho!</p>
+        <button onclick="openTab('tab1')">Sí</button>
     </div>
+
+    <script>
+        function openTab(tabId) {
+            // Oculta todas las pestañas
+            var tabs = document.querySelectorAll('.tab');
+            tabs.forEach(function(tab) {
+                tab.classList.remove('active');
+            });
+            // Muestra la pestaña seleccionada
+            document.getElementById(tabId).classList.add('active');
+        }
+    </script>
 </body>
 </html>
