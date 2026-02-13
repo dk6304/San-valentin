@@ -1,18 +1,33 @@
-<style>
-  .no-button {
-    background-color: red;
-    color: white;
-    font-size: 20px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  .no-button:hover {
-    background-color: darkred;
-  }
-</style>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>San Valentin</title>
+    <script>
+        function handleYes() {
+            document.getElementById('message').innerText = 'Muchas gracias por querer ser mi san valentin te amo mucho❤';
+        }
 
-<!-- Updated HTML for the No button -->
-<button class="no-button">No</button>
+        function handleNo() {
+            document.getElementById('noTab').style.display = 'block';
+            document.getElementById('siTab').style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <h1>¿Quieres ser mi San Valentin?</h1>
+    <button onclick="handleYes()">Sí</button>
+    <button onclick="handleNo()">No</button>
+    <div id="message"></div>
+
+    <div id="noTab" style="display:none;">
+        <h2>Opción No</h2>
+        <button>Volver</button>
+    </div>
+    <div id="siTab" style="display:none;">
+        <h2>¡Gracias!</h2>
+        <button onclick="handleYes()">¡Sí!</button>
+    </div>
+</body>
+</html>
